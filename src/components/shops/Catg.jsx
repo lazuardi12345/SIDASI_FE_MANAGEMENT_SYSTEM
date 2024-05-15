@@ -4,27 +4,23 @@ const Catg = () => {
   const data = [
     {
       cateImg: "./images/category/cat-1.png",
-      cateName: "Apple",
+      cateName: "Bahan Baku",
     },
     {
       cateImg: "./images/category/cat-2.png",
-      cateName: "Samasung",
+      cateName: "Makanan & Minuman",
     },
     {
       cateImg: "./images/category/cat-1.png",
-      cateName: "Oppo",
+      cateName: "Kosmetik",
     },
     {
       cateImg: "./images/category/cat-2.png",
-      cateName: "Vivo",
+      cateName: "Barang Unik",
     },
     {
       cateImg: "./images/category/cat-1.png",
-      cateName: "Redimi",
-    },
-    {
-      cateImg: "./images/category/cat-2.png",
-      cateName: "Sony",
+      cateName: "Elektronik",
     },
   ]
   return (
@@ -42,9 +38,9 @@ const Catg = () => {
             </div>
           )
         })}
-        <div className='box box2'>
-          <button>View All Brands</button>
-        </div>
+        {/* <div className='box box2'>
+          <button>V</button>
+        </div> */}
       </div>
     </>
   )

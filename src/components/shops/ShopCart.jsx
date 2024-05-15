@@ -1,96 +1,47 @@
-//import React, { useState } from "react"
-
-//const ShopCart = ({ addToCart, shopItems }) => {
-//  const [count, setCount] = useState(0)
-//  const increment = () => {
-//    setCount(count + 1)
-//  }
-
-//  return (
-//    <>
-//      {shopItems.map((shopItems) => {
-//        return (
-//          <div className='product mtop'>
-//            <div className='img'>
-//              <span className='discount'>{shopItems.discount}% Off</span>
-//              <img src={shopItems.cover} alt='' />
-//              <div className='product-like'>
-//                <label>{count}</label> <br />
-//                <i className='fa-regular fa-heart' onClick={increment}></i>
-//              </div>
-//            </div>
-//            <div className='product-details'>
-//              <h3>{shopItems.name}</h3>
-//              <div className='rate'>
-//                <i className='fa fa-star'></i>
-//                <i className='fa fa-star'></i>
-//                <i className='fa fa-star'></i>
-//                <i className='fa fa-star'></i>
-//                <i className='fa fa-star'></i>
-//              </div>
-//              <div className='price'>
-//                <h4>${shopItems.price}.00 </h4>
-//                <button onClick={() => addToCart(shopItems)}>
-//                  <i className='fa fa-plus'></i>
-//                </button>
-//              </div>
-//            </div>
-//          </div>
-//        )
-//      })}
-//    </>
-//  )
-//}
-
-//export default ShopCart
-
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 const ShopCart = ({ shopItems, addToCart }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const increment = () => {
-    setCount(count + 1)
-  }
+    setCount(count + 1);
+  };
 
   return (
     <>
-      {shopItems.map((shopItems, index) => {
+      {shopItems.map((shopItem, index) => {
+        // Tentukan warna teks berdasarkan ketersediaan stok
+        const textColor = shopItem.stok > 0 ? 'green' : 'red';
+
         return (
-          <div className='box'>
+          <div className='box' key={index}>
             <div className='product mtop'>
               <div className='img'>
-                <span className='discount'>{shopItems.discount}% Off</span>
-                <img src={shopItems.cover} alt='' />
+                {/* Ganti className dan tentukan warna berdasarkan stok */}
+                <span className={`info ${textColor}`}>{shopItem.info}</span>
+                <img src={shopItem.cover} alt='' />
                 <div className='product-like'>
                   <label>{count}</label> <br />
                   <i className='fa-regular fa-heart' onClick={increment}></i>
                 </div>
               </div>
               <div className='product-details'>
-                <h3>{shopItems.name}</h3>
-                <div className='rate'>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
+                <h3>{shopItem.name}</h3>
+                <div className='stok'>
+                  <p>Stok: <span style={{ color: textColor }}>{shopItem.stok}</span></p>
                 </div>
                 <div className='price'>
-                  <h4>Rp.{shopItems.price}</h4>
-                  {/* step : 3  
-                     if hami le button ma click garryo bahne 
-                    */}
-                  <button onClick={() => addToCart(shopItems)}>
+                  <h4>Rp.{shopItem.price}</h4>
+                  <button onClick={() => addToCart(shopItem)}>
                     <i className='fa fa-plus'></i>
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default ShopCart
+export default ShopCart;
