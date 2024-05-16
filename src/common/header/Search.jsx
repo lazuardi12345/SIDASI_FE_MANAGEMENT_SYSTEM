@@ -1,19 +1,24 @@
-import React from "react"
-import logo from "../../components/assets/images/logo_2.png"
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
+import logo from "../../components/assets/images/logo_2.png";
+import { Link } from "react-router-dom";
+import "./Search.css"; // Import file CSS untuk menyesuaikan styling tambahan
 
 const Search = ({ CartItem }) => {
-  // fixed Header
-  window.addEventListener("scroll", function () {
-    const search = document.querySelector(".search")
-    search.classList.toggle("active", window.scrollY > 100)
-  })
+  const [showProfile, setShowProfile] = useState(false);
+
+  const toggleProfile = () => {
+    setShowProfile(!showProfile);
+  };
+
+  const handleLogout = () => {
+    console.log("Logout berhasil");
+  };
 
   return (
     <>
       <section className='search'>
         <div className='container c_flex'>
-          <div className='logo width '>
+          <div className='logo width'>
             <img src={logo} alt='' />
           </div>
 
@@ -24,7 +29,17 @@ const Search = ({ CartItem }) => {
           </div>
 
           <div className='icon f_flex width'>
-            <i className='fa fa-user icon-circle'></i>
+            <div className='profile-container'>
+              <i className='fa fa-user icon-circle' onClick={toggleProfile}></i>
+              {showProfile && (
+                <div className='profile-dropdown'>
+                  <div className='profile-menu'>
+                    <Link to='/profile'>Profile</Link>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                </div>
+              )}
+            </div>
             <div className='cart'>
               <Link to='/cart'>
                 <i className='fa fa-shopping-bag icon-circle'></i>
@@ -35,7 +50,7 @@ const Search = ({ CartItem }) => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
