@@ -57,3 +57,6 @@
 .shop .product:hover {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
+.selected {
+  background-color: lightblue; /* Atur warna yang diinginkan untuk kategori yang dipilih */
+}

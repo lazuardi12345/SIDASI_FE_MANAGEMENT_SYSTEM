@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useState } from "react";
 
-const Catg = () => {
+const Catg = ({ onSelectCategory }) => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   const data = [
     {
       cateImg: "./images/category/cat-1.png",
@@ -8,7 +10,11 @@ const Catg = () => {
     },
     {
       cateImg: "./images/category/cat-2.png",
-      cateName: "Makanan & Minuman",
+      cateName: "Makanan",
+    },
+    {
+      cateImg: "./images/category/cat-2.png",
+      cateName: "Minuman",
     },
     {
       cateImg: "./images/category/cat-1.png",
@@ -22,7 +28,13 @@ const Catg = () => {
       cateImg: "./images/category/cat-1.png",
       cateName: "Elektronik",
     },
-  ]
+  ];
+
+  const handleClick = (categoryName) => {
+    setSelectedCategory(categoryName);
+    onSelectCategory(categoryName);
+  };
+
   return (
     <>
       <div className='category'>
@@ -32,18 +44,19 @@ const Catg = () => {
         </div>
         {data.map((value, index) => {
           return (
-            <div className='box f_flex' key={index}>
+            <div
+              className={`box f_flex ${selectedCategory === value.cateName ? 'selected' : ''}`}
+              key={index}
+              onClick={() => handleClick(value.cateName)}
+            >
               <img src={value.cateImg} alt='' />
               <span>{value.cateName}</span>
             </div>
-          )
+          );
         })}
-        {/* <div className='box box2'>
-          <button>V</button>
-        </div> */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Catg
+export default Catg;

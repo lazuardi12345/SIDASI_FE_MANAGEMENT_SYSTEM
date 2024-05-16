@@ -7,6 +7,7 @@ const Sdata = {
       price: "15.000",
       info: "Tersedia",
       stok: "1000",
+      category: "Bahan Baku",
     },
     {
       id: 8,
@@ -15,6 +16,7 @@ const Sdata = {
       price: "3.000",
       info: "Tersedia",
       stok: "50",
+      category: "Minuman",
     },
     {
       id: 9,
@@ -23,6 +25,7 @@ const Sdata = {
       price: "5.000",
       info: "Tersedia",
       stok: "500",
+      category: "Makanan",
     },
     {
       id: 10,
@@ -30,7 +33,8 @@ const Sdata = {
       name: "Beras",
       price: "348.500",
       info: "Tersedia",
-      stok: "30"
+      stok: "30",
+      category:"Bahan Baku",
     },
     {
       id: 11,
@@ -39,6 +43,7 @@ const Sdata = {
       price: "17.000",
       info: "Tersedia",
       stok: "20",
+      category: "Bahan Baku",
     },
     {
       id: 12,
@@ -47,6 +52,7 @@ const Sdata = {
       price: "11.500",
       info: "Tersedia",
       stok: "100",
+      Category: "Bahan Baku",
     },
     {
       id: 13,
@@ -55,6 +61,7 @@ const Sdata = {
       price: "9.500",
       info: "Tersedia",
       stok: "30",
+      category: "Bahan Baku",
     },
     {
       id: 14,
@@ -63,6 +70,7 @@ const Sdata = {
       price: "38.000",
       info: "Kosong",
       stok: "0",
+      category: "Barang Unik",
     },
     {
       id: 15,
@@ -71,6 +79,7 @@ const Sdata = {
       price: "80.000",
       info: "Tersedia",
       stok: "3",
+      category: "Kosmetik"
     },
     {
       id: 16,
@@ -79,6 +88,7 @@ const Sdata = {
       price: "15.000",
       info: "Tersedia",
       stok: "40",
+      category: "Barang Unik"
     },
   ],
 }
